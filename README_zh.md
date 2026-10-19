@@ -97,6 +97,15 @@ MoePeek 是一个纯 **AI vibe coding** 的自用项目。它能满足我个人�
 
 所有快捷键均可在**设置 → 通用**中自定义。智能翻译为可选功能，不会更改已有快捷键绑定；如需统一回退行为，可在设置中自行绑定。
 
+### OpenClip 集成
+
+使用 [OpenClip](https://github.com/ganeshmshetty/openclip) 时，可以将选中的文字直接交给 MoePeek 翻译：
+
+1. 安装 MoePeek 并完成首次设置。
+2. 从最新 Release 下载 [`MoePeek.openclipext.zip`](https://github.com/cosZone/MoePeek/releases/latest/download/MoePeek.openclipext.zip) 并解压。
+3. 使用 OpenClip 打开 `MoePeek.openclipext`，确认安装扩展。
+4. 选中文字，在 OpenClip 中选择 **MoePeek**。译文会显示在 MoePeek 浮窗中，沿用已配置的翻译服务和目标语言。
+
 ### PopClip 集成
 
 如果你使用 [PopClip](https://www.popclip.app/)，可以直接从 PopClip 菜单栏一键触发 MoePeek 翻译。
