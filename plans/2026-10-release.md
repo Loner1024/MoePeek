@@ -5,7 +5,7 @@
 
 ## 本轮候选：v0.21.0
 
-范围是 OpenClip 集成（#113）、外部 URL 入口集成测试，以及 PR / 发布工作流的完整测试门禁。新增集成按仓库约定提升 minor 版本。
+范围是 OpenClip 集成（#113）、外部 URL 入口集成测试、HTML 富文本冷启动超时修复，以及 PR / 发布工作流的完整测试门禁。新增集成按仓库约定提升 minor 版本。
 
 - [x] OpenClip 扩展 manifest、双语安装说明、Release 扩展包打包步骤。
 - [x] OpenClip v1.8.2 实际安装成功，安装后的 manifest 与待发布文件一致。
@@ -18,6 +18,9 @@
 - [x] 最终 diff、JSON、Release YAML 静态检查通过。
 - [x] 提交并推送 feature branch，创建 [draft PR #117](https://github.com/cosZone/MoePeek/pull/117)。
 - [x] 远端完整测试通过：[运行 39258012918](https://github.com/cosZone/MoePeek/actions/runs/39258012918)，提交 `167a167`，96 个测试、16 个套件成功。首轮测试宿主启动超时；仅补入公开测试公钥后，本地和远端均成功，正式发布仍使用 Prod 公钥。
+- [x] HTML 超时调整后的本地完整套件通过，96 个测试成功。文档提交后的运行 39258728005 复现已有 `importsHTMLFormatting` 在 2.013 秒退回纯文本的问题；当前只将 HTML 导入超时从 2 秒延长至 5 秒，保持原有格式断言和失败回退。
+- [ ] HTML 修复的最终远端回归验证，结果以 PR #117 最新提交的检查为准。
+- [ ] HTML 修复后的 Release 归档重新验证；10 月 16 日归档不包含此修复。
 - [ ] 展示剩余验证缺口和发布命令，确认正式发版。
 - [ ] 远端测试、正式签名、ZIP/DMG、扩展包、appcast 与 tag/commit 一致性核验。
 
