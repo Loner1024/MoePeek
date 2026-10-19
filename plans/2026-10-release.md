@@ -16,7 +16,8 @@
 - [ ] OpenClip 实际菜单动作到 MoePeek 呈现结果的完整验收（保留验证缺口，按 10 月 19 日用户指示继续推进代码审查）。
 - [x] 最终版本 Release archive 成功，版本号 0.21.0，包含 arm64 / x86_64；扩展 ZIP 中的 manifest 与源文件一致。
 - [x] 最终 diff、JSON、Release YAML 静态检查通过。
-- [ ] 提交并推送 feature branch，创建 draft PR，检查远端测试。
+- [x] 提交并推送 feature branch，创建 [draft PR #117](https://github.com/cosZone/MoePeek/pull/117)。
+- [ ] 检查最终提交的远端测试。首轮 CI 在执行测试前宿主超时，测试包已加载；日志报 Sparkle 公钥无效，正在用公开测试公钥进行单变量对照。
 - [ ] 展示剩余验证缺口和发布命令，确认正式发版。
 - [ ] 远端测试、正式签名、ZIP/DMG、扩展包、appcast 与 tag/commit 一致性核验。
 
@@ -34,6 +35,8 @@
 - 正式签名、Release Actions、Sparkle 更新及安装包下载仍需在远端发布流程中验证。
 
 ## 问题与后续顺序
+
+**新优先项 #116（10 月 17 日新增）**：macOS 27 OCR 报错及 TikTok 选字失败。10 月 19 日在 macOS 27.2 用同一张中英文合成图片对照：当前 OCR 路径在 Vision / TextRecognition 内等待，默认 revision 3 和 CPU-only revision 3 均超过 30 秒未返回，revision 2 成功识别中英文。尚未复现报告中的 `CRImageReaderError 1`，不能等同原始故障；revision 2 也不支持现有日语、韩语，因此不能全局降级。该问题列为本轮之后的首要修复，需验证有限回退及语言兼容性。TikTok 部分需要实际页面复现，当前仅确认剪贴板回退会发送带 Command 修饰的 C；没有修改或关闭 issue。
 
 1. **#112 简体结果混入繁体字**：直接运行当前 AppleTranslationProvider 并使用原始文本，显式英语与自动识别下的简体、繁体输出均正确；原生窗口也显示正确简体结果。本机为 macOS 27.2 / Xcode 27。尚未复现，不添加推测性转换逻辑，不在本轮发布说明中声称修复，不关闭 issue。后续需要报告者的 macOS / MoePeek 版本，以及同一原文在当前版本中的复测结果。
 2. **#106 OCR 长文本无响应**：已有布局回归测试通过，覆盖 12 组尺寸/字体组合、流式结果中的手动缩放及关闭后重开。原始截图与原始环境的持续卡死场景仍未复测；本轮不把通过合成场景视为该场景已解决。若原场景仍可复现，优先于功能扩展处理。
