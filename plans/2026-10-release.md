@@ -17,7 +17,7 @@
 - [x] 最终版本 Release archive 成功，版本号 0.21.0，包含 arm64 / x86_64；扩展 ZIP 中的 manifest 与源文件一致。
 - [x] 最终 diff、JSON、Release YAML 静态检查通过。
 - [x] 提交并推送 feature branch，创建 [draft PR #117](https://github.com/cosZone/MoePeek/pull/117)。
-- [ ] 检查最终提交的远端测试。首轮 CI 在执行测试前宿主超时，测试包已加载；日志报 Sparkle 公钥无效，正在用公开测试公钥进行单变量对照。
+- [x] 远端完整测试通过：[运行 39258012918](https://github.com/cosZone/MoePeek/actions/runs/39258012918)，提交 `167a167`，96 个测试、16 个套件成功。首轮测试宿主启动超时；仅补入公开测试公钥后，本地和远端均成功，正式发布仍使用 Prod 公钥。
 - [ ] 展示剩余验证缺口和发布命令，确认正式发版。
 - [ ] 远端测试、正式签名、ZIP/DMG、扩展包、appcast 与 tag/commit 一致性核验。
 
@@ -31,6 +31,7 @@
 - `apple-matrix.log`：使用真实 Apple 翻译 API，指定英语和自动识别两种模式下分别执行简体→繁体→简体，共 6 次成功；仅证明本机该输入正常。
 - `quality-20261019/verification.xcresult` / `verification-summary.json`：当天完整套件 96 / 96 通过，失败 0、跳过 0。
 - `quality-20261019/openclip-contract.log`：直接使用上游 v1.8.2 源码验证图标解析和 3 组 URL 特殊字符输入；上下文仅用最小数据结构承载，不替代 OpenClip 的菜单执行验收。
+- `quality-20261019/key-fixed.xcresult` / `ci-39258012918.log`：带公开测试公钥的本地完整套件与 GitHub macOS 26.6.2 / Xcode 26.6 完整套件均通过。
 - OpenClip 1.8.2 的原生安装、启用和图标显示已确认。系统权限开关已开启，重启后权限恢复提示消失；窗口级快捷键未唤起面板，System Events 明确拒绝 `osascript` 发送按键。没有绕过或修改系统权限数据库。
 - 正式签名、Release Actions、Sparkle 更新及安装包下载仍需在远端发布流程中验证。
 

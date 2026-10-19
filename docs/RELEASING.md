@@ -48,7 +48,7 @@ security find-identity -v -p codesigning
 
 ## 合并前验证
 
-`Tests` workflow 在 PR 和 main 分支推送时运行完整 `MoePeekTests`，也支持手动触发。它使用示例签名配置并关闭代码签名，不读取 Prod secrets；xcresult 报告保留 14 天。
+`Tests` workflow 在 PR 和 main 分支推送时运行完整 `MoePeekTests`，也支持手动触发。它使用示例签名配置并关闭代码签名，提供公开测试公钥供 Sparkle 测试宿主初始化，不读取 Prod secrets；xcresult 报告保留 14 天。
 
 合并前检查最新提交的测试结果。Release workflow 会在正式签名归档前再次运行完整测试，失败时停止发布。
 
