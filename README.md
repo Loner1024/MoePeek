@@ -96,6 +96,15 @@ On first launch, MoePeek walks you through an onboarding flow to grant the requi
 
 All shortcuts can be customized in **Settings → General**. Smart Translation is opt-in and never changes existing shortcut bindings; assign it there if you want the unified fallback behavior.
 
+### OpenClip Integration
+
+Use [OpenClip](https://github.com/ganeshmshetty/openclip) to send selected text to MoePeek:
+
+1. Install MoePeek and complete its initial setup.
+2. Download [`MoePeek.openclipext.zip`](https://github.com/cosZone/MoePeek/releases/latest/download/MoePeek.openclipext.zip) from the latest release and unzip it.
+3. Open `MoePeek.openclipext` with OpenClip and confirm the installation.
+4. Select text and choose **MoePeek** in OpenClip. The translation appears in MoePeek using your configured services and target language.
+
 ### PopClip Integration
 
 If you use [PopClip](https://www.popclip.app/), you can translate selected text with a single click from the PopClip bar.
